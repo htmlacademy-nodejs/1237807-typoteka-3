@@ -1,14 +1,14 @@
 'use strict';
 
 const Joi = require(`joi`);
-const {ArticleMessage, Title, Announce, MAX_TEXT_LENGTH, MIN_CATEGORIES_LENGTH} = require(`../../const`);
+const {Article, ArticleMessage} = require(`../../const/shemas.const`);
 
 module.exports = (categories) => {
   return Joi.object({
 
     title: Joi.string()
-    .min(Title.MIN_LENGTH)
-    .max(Title.MAX_LENGTH)
+    .min(Article.MIN_TITLE_LENGTH)
+    .max(Article.MAX_TITLE_LENGTH)
     .empty(``)
     .required()
     .messages({
@@ -27,8 +27,8 @@ module.exports = (categories) => {
     }),
 
     announce: Joi.string()
-    .min(Announce.MIN_LENGTH)
-    .max(Announce.MAX_LENGTH)
+    .min(Article.MIN_ANNOUNCE_LENGTH)
+    .max(Article.MAX_ANNOUNCE_LENGTH)
     .empty(``)
     .required()
     .messages({
@@ -38,7 +38,7 @@ module.exports = (categories) => {
     }),
 
     fullText: Joi.string()
-    .max(MAX_TEXT_LENGTH)
+    .max(Article.MAX_TEXT_LENGTH)
     .empty(``)
     .messages({
       'string.max': ArticleMessage.MAX_FULL_TEXT_LENGTH,
@@ -47,7 +47,7 @@ module.exports = (categories) => {
     categories: Joi.array()
     .items(Joi.number()
     .valid(...categories))
-    .min(MIN_CATEGORIES_LENGTH)
+    .min(Article.MIN_CATEGORIES_LENGTH)
     .required()
     .messages({
       'any.required': ArticleMessage.REQUIRED.CATEGORIES,
@@ -58,6 +58,5 @@ module.exports = (categories) => {
 
     image: Joi.string()
     .empty(``),
-
   });
 };

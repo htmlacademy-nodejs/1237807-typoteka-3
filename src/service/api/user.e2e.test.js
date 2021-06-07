@@ -1,4 +1,3 @@
-/* eslint-disable max-nested-callbacks */
 'use strict';
 
 const express = require(`express`);
@@ -9,7 +8,8 @@ const user = require(`./user`);
 const DataService = require(`../data-service/user`);
 const serviceLocatorFactory = require(`../lib/service-locator`);
 const {getLogger} = require(`../lib/test-logger`);
-const {HttpCode, UserMessage, LoginMessage} = require(`../../const`);
+const {HttpCode} = require(`../../const/server.const`);
+const {UserMessage, LoginMessage} = require(`../../const/shemas.const`);
 
 const createAPI = async () => {
   const mockDB = new Sequelize(`sqlite::memory:`, {logging: false});

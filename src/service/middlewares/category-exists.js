@@ -1,6 +1,6 @@
 'use strict';
 
-const {HttpCode} = require(`../../const`);
+const {HttpCode} = require(`../../const/server.const`);
 
 module.exports = (service, logger) => async (req, res, next) => {
   const {categoryId} = req.params;

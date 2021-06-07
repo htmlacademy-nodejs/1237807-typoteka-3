@@ -5,7 +5,8 @@ const articleExists = require(`../middlewares/article-exists`);
 const userAdmin = require(`../middlewares/user-admin`);
 const schemaValidator = require(`../middlewares/schema-validator`);
 const articleSchema = require(`../schemas/article`);
-const {HttpCode, TOP_PER_PAGE} = require(`../../const`);
+const {HttpCode} = require(`../../const/server.const`);
+const {TOP_PER_PAGE} = require(`../../const/view.const`);
 
 module.exports = (serviceLocator) => {
   const route = new Router();
@@ -27,11 +28,7 @@ module.exports = (serviceLocator) => {
     const {offset, limit, comments = false} = req.query;
     let result;
 
-    if (limit || offset) {
-      result = await service.findPage({limit, offset, comments});
-    } else {
-      result = await service.findAll(comments);
-    }
+    result = (limit || offset) ? await service.findPage({limit, offset, comments}) : await service.findAll(comments);
 
     return res.status(HttpCode.OK).json(result);
   });
@@ -49,11 +46,7 @@ module.exports = (serviceLocator) => {
     const {offset, limit} = req.query;
     let result;
 
-    if (limit || offset) {
-      result = await service.findPageByCategory({limit, offset, categoryId});
-    } else {
-      result = await service.findAllByCategory(categoryId);
-    }
+    result = (limit || offset) ? await service.findPageByCategory({limit, offset, categoryId}) : await service.findAllByCategory(categoryId);
 
     return res.status(HttpCode.OK).json(result);
   });

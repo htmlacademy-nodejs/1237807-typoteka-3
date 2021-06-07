@@ -56,8 +56,6 @@ class CommentService {
     });
     return !!deletedRows;
   }
-
-
 }
 
 module.exports = CommentService;

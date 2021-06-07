@@ -1,7 +1,7 @@
 'use strict';
 
 const Joi = require(`joi`);
-const {LoginMessage} = require(`../../const`);
+const {LoginMessage} = require(`../../const/shemas.const`);
 
 module.exports = Joi.object({
 

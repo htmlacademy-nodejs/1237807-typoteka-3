@@ -1,7 +1,7 @@
 'use strict';
 
 const Joi = require(`joi`);
-const {Category, CategoryMessage} = require(`../../const`);
+const {Category, CategoryMessage} = require(`../../const/shemas.const`);
 
 module.exports = Joi.object({
 

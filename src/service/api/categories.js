@@ -1,13 +1,13 @@
 'use strict';
 
 const {Router} = require(`express`);
-const {HttpCode} = require(`../../const`);
 const categoryExists = require(`../middlewares/category-exists`);
 const categoryUniqueName = require(`../middlewares/category-unique-name`);
 const categoryHasArticles = require(`../middlewares/category-has-articles`);
 const userAdmin = require(`../middlewares/user-admin`);
 const schemaValidator = require(`../middlewares/schema-validator`);
 const categorySchema = require(`../schemas/category`);
+const {HttpCode} = require(`../../const/server.const`);
 
 module.exports = (serviceLocator) => {
   const route = new Router();
@@ -28,11 +28,7 @@ module.exports = (serviceLocator) => {
     const {count = false} = req.query;
     let categories;
 
-    if (count) {
-      categories = await service.findAllWithCount();
-    } else {
-      categories = await service.findAll();
-    }
+    categories = count ? await service.findAllWithCount() : await service.findAll();
 
     return res.status(HttpCode.OK).json(categories);
   });

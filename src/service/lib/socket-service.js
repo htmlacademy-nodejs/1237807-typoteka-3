@@ -33,8 +33,8 @@ class SocketService {
     }
   }
 
-  updateTop(articles) {
-    // this._io.emit(`comments`, JSON.parse(JSON.stringify(comments)));
+  updateTop(comments, articles) {
+    this._io.emit(`comments`, JSON.parse(JSON.stringify(comments)));
     this._io.emit(`articles`, JSON.parse(JSON.stringify(articles)));
   }
 }

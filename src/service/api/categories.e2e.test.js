@@ -9,7 +9,8 @@ const DataService = require(`../data-service/category`);
 const serviceLocatorFactory = require(`../lib/service-locator`);
 const {getLogger} = require(`../lib/test-logger`);
 const {mockArticles, mockCategories, mockUsers, mockComments, mockCategory} = require(`./categories.test-data`);
-const {HttpCode, CategoryMessage} = require(`../../const`);
+const {HttpCode} = require(`../../const/server.const`);
+const {CategoryMessage} = require(`../../const/shemas.const`);
 
 const createAPI = async () => {
   const mockDB = new Sequelize(`sqlite::memory:`, {logging: false});

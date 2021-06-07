@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports.mockCategories = [
+const mockCategories = [
   `Деревья`,
   `IT`,
   `Кино`,
@@ -13,7 +13,7 @@ module.exports.mockCategories = [
   `Музыка`,
 ];
 
-module.exports.mockArticles = [
+const mockArticles = [
   {
     title: `Как достигнуть успеха не вставая с кресла`,
     date: `2021-03-15T17:14:35.012Z`,
@@ -77,7 +77,7 @@ module.exports.mockArticles = [
   }
 ];
 
-module.exports.mockPost = {
+const mockPost = {
   title: `Хорошая валидная статья про котиков`,
   date: `2021-01-31T20:15:52.417Z`,
   announce: `Это интересная статья про котиков.`,
@@ -86,7 +86,7 @@ module.exports.mockPost = {
   image: `cat.jpg`
 };
 
-module.exports.mockUsers = [
+const mockUsers = [
   {
     firstname: `Иван`,
     lastname: `Иванов`,
@@ -105,7 +105,7 @@ module.exports.mockUsers = [
   },
 ];
 
-module.exports.mockComments = [
+const mockComments = [
   {
     text: `Это где ж такие красоты? Давно не пользуюсь стационарными компьютерами. Ноутбуки победили. Совсем немного...`,
     articleId: 1,
@@ -162,3 +162,6 @@ module.exports.mockComments = [
     userId: 1,
   }
 ];
+
+module.exports = {mockCategories, mockArticles, mockPost, mockUsers, mockComments};
+

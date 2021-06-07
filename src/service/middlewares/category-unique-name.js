@@ -1,6 +1,7 @@
 'use strict';
 
-const {HttpCode, CategoryMessage} = require(`../../const`);
+const {HttpCode} = require(`../../const/server.const`);
+const {CategoryMessage} = require(`../../const/shemas.const`);
 
 module.exports = (service, logger) => async (req, res, next) => {
 

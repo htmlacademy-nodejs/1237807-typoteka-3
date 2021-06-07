@@ -1,6 +1,6 @@
 'use strict';
 
-const {HttpCode} = require(`../../const`);
+const {HttpCode} = require(`../../const/server.const`);
 
 module.exports = (schema, logger, service) => (
 
@@ -8,11 +8,12 @@ module.exports = (schema, logger, service) => (
     const {body} = req;
 
     let validSchema;
+    let allCategoriesIds;
 
     if (service) {
       try {
         const allCategories = await service.findAll();
-        const allCategoriesIds = allCategories.reduce((acc, item) => ([
+        allCategoriesIds = allCategories.reduce((acc, item) => ([
           item.id,
           ...acc
         ]), []);
@@ -24,10 +25,9 @@ module.exports = (schema, logger, service) => (
 
         return;
       }
-
-    } else {
-      validSchema = schema;
     }
+
+    validSchema = service ? schema(allCategoriesIds) : schema;
 
     try {
       await validSchema.validateAsync(body, {abortEarly: false});

@@ -1,6 +1,6 @@
 'use strict';
 
-const {HttpCode} = require(`../../const`);
+const {HttpCode} = require(`../../const/server.const`);
 
 module.exports = (logger) => (req, res, next) => {
 

@@ -1,12 +1,12 @@
 'use strict';
 
 const {Router} = require(`express`);
-const {HttpCode} = require(`../../const`);
 const userAlreadyExists = require(`../middlewares/user-already-exists`);
 const schemaValidator = require(`../middlewares/schema-validator`);
 const authenticate = require(`../middlewares/authenticate`);
 const userSchema = require(`../schemas/user`);
 const loginSchema = require(`../schemas/login`);
+const {HttpCode} = require(`../../const/server.const`);
 
 module.exports = (serviceLocator) => {
   const route = new Router();

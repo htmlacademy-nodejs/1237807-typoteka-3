@@ -2,9 +2,8 @@
 
 const fs = require(`fs`).promises;
 const chalk = require(`chalk`);
-
-const {ExitCode} = require(`../../const`);
 const {getRandomInt, shuffleArray} = require(`../../utils`);
+const {ExitCode} = require(`../../const/server.const`);
 
 const FILE_NAME = `fill-db.sql`;
 const FILE_TITLES_PATH = `./data/titles.txt`;

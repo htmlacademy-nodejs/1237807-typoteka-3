@@ -4,8 +4,8 @@ const fs = require(`fs`).promises;
 const sequelize = require(`../lib/sequelize`);
 const initDatabase = require(`../lib/init-db`);
 const {getLogger} = require(`../lib/logger`);
-const {ExitCode} = require(`../../const`);
 const {getRandomInt, shuffleArray} = require(`../../utils`);
+const {ExitCode} = require(`../../const/server.const`);
 
 const FILE_TITLES_PATH = `./data/titles.txt`;
 const FILE_SENTENCES_PATH = `./data/sentences.txt`;

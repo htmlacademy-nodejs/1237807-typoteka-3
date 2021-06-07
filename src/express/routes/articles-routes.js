@@ -6,7 +6,7 @@ const {upload} = require(`../middlewares/multer`);
 const privateRoute = require(`../middlewares/private-route`);
 const loggedRoute = require(`../middlewares/logged-route`);
 const {getPagerRange} = require(`../../utils`);
-const {ARTICLES_PER_PAGE, PAGER_WIDTH} = require(`../../const`);
+const {ARTICLES_PER_PAGE, PAGER_WIDTH} = require(`../../const/view.const`);
 
 const articlesRouter = new Router();
 const api = apiFactory.getAPI();
@@ -83,16 +83,16 @@ articlesRouter.get(`/edit/:id`, privateRoute, async (req, res, next) => {
     const categories = await api.getCategories();
     let article;
 
-    if (newData) {
-      article = {...newData, id};
-    } else {
-      article = await api.getArticle(id);
+    article = newData ? {...newData, id} : await api.getArticle(id);
+
+    if (!newData) {
       const articleCategories = article.categories.reduce((acc, item) => ([
         item.id.toString(),
         ...acc
       ]), []);
       article = {...article, categories: articleCategories};
     }
+
     req.session.newData = null;
     req.session.errorMessages = null;
     res.render(`articles/new-post`, {article, categories, errorMessages});

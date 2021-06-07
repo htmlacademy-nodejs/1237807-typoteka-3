@@ -1,7 +1,7 @@
 'use strict';
 
 const {Router} = require(`express`);
-const {HttpCode} = require(`../../const`);
+const {HttpCode} = require(`../../const/server.const`);
 
 module.exports = (serviceLocator) => {
   const route = new Router();

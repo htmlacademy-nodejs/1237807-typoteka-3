@@ -9,8 +9,7 @@ const DataService = require(`../data-service/search`);
 const serviceLocatorFactory = require(`../lib/service-locator`);
 const {getLogger} = require(`../lib/test-logger`);
 const {mockArticles, mockCategories, mockUsers, mockComments} = require(`./search.test-data`);
-const {HttpCode} = require(`../../const`);
-
+const {HttpCode} = require(`../../const/server.const`);
 
 const mockDB = new Sequelize(`sqlite::memory:`, {logging: false});
 const serviceLocator = serviceLocatorFactory();

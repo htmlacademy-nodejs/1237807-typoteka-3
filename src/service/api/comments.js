@@ -5,7 +5,8 @@ const articleExists = require(`../middlewares/article-exists`);
 const userAdmin = require(`../middlewares/user-admin`);
 const schemaValidator = require(`../middlewares/schema-validator`);
 const commentSchema = require(`../schemas/comment`);
-const {HttpCode, TOP_PER_PAGE} = require(`../../const`);
+const {HttpCode} = require(`../../const/server.const`);
+const {TOP_PER_PAGE} = require(`../../const/view.const`);
 
 module.exports = (serviceLocator) => {
   const route = new Router({mergeParams: true});

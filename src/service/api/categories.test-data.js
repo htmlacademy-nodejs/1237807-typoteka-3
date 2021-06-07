@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports.mockCategories = [
+const mockCategories = [
   `Кино`,
   `Железо`,
   `Разное`,
@@ -11,7 +11,7 @@ module.exports.mockCategories = [
   `Категория без статей`
 ];
 
-module.exports.mockArticles = [
+const mockArticles = [
   {
     title: `Лучшие рок-музыканты 20-века`,
     date: `2021-02-21T06:22:24.938Z`,
@@ -48,11 +48,11 @@ module.exports.mockArticles = [
   }
 ];
 
-module.exports.mockCategory = {
+const mockCategory = {
   name: `Новая категория`
 };
 
-module.exports.mockUsers = [
+const mockUsers = [
   {
     firstname: `Иван`,
     lastname: `Иванов`,
@@ -71,7 +71,7 @@ module.exports.mockUsers = [
   },
 ];
 
-module.exports.mockComments = [
+const mockComments = [
   {
     text: `Мне кажется или я уже читал это где-то? Давно не пользуюсь стационарными компьютерами. Ноутбуки победили. Плюсую, но слишком много буквы!`,
     articleId: 1,
@@ -103,3 +103,5 @@ module.exports.mockComments = [
     userId: 1,
   }
 ];
+
+module.exports = {mockCategories, mockArticles, mockCategory, mockUsers, mockComments};

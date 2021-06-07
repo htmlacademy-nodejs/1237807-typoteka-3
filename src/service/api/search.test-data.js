@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports.mockCategories = [
+const mockCategories = [
   `Деревья`,
   `Разное`,
   `Программирование`,
@@ -11,7 +11,7 @@ module.exports.mockCategories = [
   `Музыка`
 ];
 
-module.exports.mockArticles = [
+const mockArticles = [
   {
     title: `Борьба с прокрастинацией`,
     date: `2021-04-01T17:04:50.012Z`,
@@ -55,7 +55,7 @@ module.exports.mockArticles = [
   }
 ];
 
-module.exports.mockUsers = [
+const mockUsers = [
   {
     firstname: `Иван`,
     lastname: `Иванов`,
@@ -74,7 +74,7 @@ module.exports.mockUsers = [
   },
 ];
 
-module.exports.mockComments = [
+const mockComments = [
   {
     text: `Мне кажется или я уже читал это где-то? Планируете записать видосик на эту тему? Мне не нравится ваш стиль. Ощущение, что вы меня поучаете.`,
     articleId: 1,
@@ -111,3 +111,5 @@ module.exports.mockComments = [
     userId: 2,
   }
 ];
+
+module.exports = {mockCategories, mockArticles, mockUsers, mockComments};

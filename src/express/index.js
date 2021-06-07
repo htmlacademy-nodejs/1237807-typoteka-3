@@ -3,11 +3,10 @@
 const express = require(`express`);
 const expressSession = require(`express-session`);
 const path = require(`path`);
-
 const articlesRoutes = require(`./routes/articles-routes`);
 const myRoutes = require(`./routes/my-routes`);
 const mainRoutes = require(`./routes/main-routes`);
-const {HttpCode} = require(`../const`);
+const {HttpCode} = require(`../const/server.const`);
 
 const DEFAULT_PORT = 8080;
 const PUBLIC_DIR = `public`;

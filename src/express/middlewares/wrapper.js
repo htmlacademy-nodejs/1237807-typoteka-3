@@ -1,6 +1,6 @@
 'use strict';
 
-const {WrapperType} = require(`../../const`);
+const {WrapperType} = require(`../../const/view.const`);
 
 module.exports = (req, res, next) => {
 
