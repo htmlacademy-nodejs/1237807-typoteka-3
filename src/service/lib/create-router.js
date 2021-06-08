@@ -3,8 +3,8 @@
 const {Router} = require(`express`);
 const serviceLocatorFactory = require(`../lib/service-locator`);
 const sequelize = require(`../lib/sequelize`);
+const defineModels = require(`../lib/define-models`);
 const SocketService = require(`../lib/socket-service`);
-const defineModels = require(`../models`);
 const {categoriesRoute, articlesRoute, commentsRoute, searchRoute, userRoute} = require(`../api`);
 const {CategoryService, ArticleService, CommentService, SearchService, UserService} = require(`../data-service`);
 
